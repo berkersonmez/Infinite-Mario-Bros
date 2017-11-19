@@ -22,7 +22,7 @@ index.markdown
 .idea/**/tasks.xml
 .idea/dictionaries
 
-# Sensitive or high-churn files:
+# Sensitive or high-churn levels:
 .idea/**/dataSources/
 .idea/**/dataSources.ids
 .idea/**/dataSources.xml
@@ -44,7 +44,7 @@ cmake-build-debug/
 ## File-based project format:
 *.iws
 
-## Plugin-specific files:
+## Plugin-specific levels:
 
 # IntelliJ
 /out/
