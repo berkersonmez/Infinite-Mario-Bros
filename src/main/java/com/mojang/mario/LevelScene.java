@@ -71,7 +71,8 @@ public class LevelScene extends Scene implements SpriteContext
 //        level = LevelGenerator.createLevel(320, 15, levelSeed);
         //level = LevelGenerator.createLevel(320, 15, levelSeed, levelDifficulty, levelType);
         //level = BgLevelGenerator.createLevel(320, 15, false, levelType);
-        level = FileLevelGenerator.createLevel("/levels/mario-1-1.txt", levelType);
+        levelType = LevelGenerator.TYPE_UNDERGROUND;
+        level = FileLevelGenerator.createLevel("/levels/mario-1-2.txt", levelType);
         //        }
 
         /*        if (recorder != null)

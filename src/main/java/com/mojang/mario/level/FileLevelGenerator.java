@@ -76,6 +76,8 @@ public class FileLevelGenerator {
             Random random = new Random();
             int type = random.nextInt(4);
             level.setSpriteTemplate(x, y, new SpriteTemplate(type, false));
+        } else if (ch == 'o') { // Coin
+            level.setBlock(x, y, (byte) (0 + 2 * 16));
         }
     }
 
