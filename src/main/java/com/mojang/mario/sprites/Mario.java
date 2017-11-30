@@ -202,7 +202,10 @@ public class Mario extends Sprite
         {
             facing = -1;
         }
-
+        System.out.println("KEY_JUMP: " + keys[KEY_JUMP]);
+        System.out.println("jumpTime: " + jumpTime);
+        System.out.println("onGround: " + onGround);
+        System.out.println("sliding: " + sliding);
         if (keys[KEY_JUMP] || (jumpTime < 0 && !onGround && !sliding))
         {
             if (jumpTime < 0)
@@ -269,7 +272,7 @@ public class Mario extends Sprite
             world.sound.play(Art.samples[Art.SAMPLE_MARIO_FIREBALL], this, 1, 1, 1);
             world.addSprite(new Fireball(world, x+facing*6, y-20, facing));
         }
-        
+
         canShoot = !keys[KEY_SPEED];
 
         mayJump = (onGround || sliding) && !keys[KEY_JUMP];
