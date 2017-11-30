@@ -77,7 +77,7 @@ public class MarioComponent extends JComponent implements Runnable, KeyListener,
         {
             scene.toggleKey(Mario.KEY_UP, isPressed);
         }
-        if (keyCode == KeyEvent.VK_A)
+        if (keyCode == KeyEvent.VK_Q)
         {
             scene.toggleKey(Mario.KEY_SPEED, isPressed);
         }
