@@ -71,9 +71,9 @@ public class FileLevelGenerator {
             level.setBlock(x, y, (byte) (10 + 1 * 16));
         } else if (ch == ']') { // Pipe body right
             level.setBlock(x, y, (byte) (11 + 1 * 16));
-        } else if (ch == 'B') { // Pipe body right
-            level.setBlock(x, y, (byte) (14 + 1 * 16));
         } else if (ch == 'b') { // Pipe body right
+            level.setBlock(x, y, (byte) (14 + 1 * 16));
+        } else if (ch == 'B') { // Pipe body right
             level.setBlock(x, y, (byte) (14 + 0 * 16));
         } else if (ch == 'E') { // Enemy
             // TODO: Need to annotate enemy types to get rid of random selection.
