@@ -23,11 +23,11 @@ public class Mushroom extends Sprite
     private int width = 4;
     int height = 24;
 
-    private LevelScene world;
+    protected LevelScene world;
     public int facing;
 
     public boolean avoidCliffs = false;
-    private int life;
+    protected int life;
 
     public Mushroom(LevelScene world, int x, int y)
     {

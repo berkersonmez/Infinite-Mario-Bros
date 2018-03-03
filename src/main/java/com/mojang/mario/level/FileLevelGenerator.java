@@ -1,5 +1,7 @@
 package com.mojang.mario.level;
 
+import com.mojang.mario.sprites.Enemy;
+
 import java.io.*;
 import java.util.Random;
 
@@ -61,6 +63,8 @@ public class FileLevelGenerator {
             level.setBlock(x, y, (byte) (4 + 1 + 1 * 16));
         } else if (ch == '?') { // Power up
             level.setBlock(x, y, (byte) (4 + 2 + 1 * 16));
+        } else if (ch == '!') { // Power up
+            level.setBlock(x, y, (byte) (4 + 3 + 1 * 16));
         } else if (ch == 'S') { // Brick
             level.setBlock(x, y, (byte) (0 + 1 * 16));
         } else if (ch == '<') { // Pipe top left
@@ -75,11 +79,22 @@ public class FileLevelGenerator {
             level.setBlock(x, y, (byte) (14 + 1 * 16));
         } else if (ch == 'B') { // Pipe body right
             level.setBlock(x, y, (byte) (14 + 0 * 16));
-        } else if (ch == 'E') { // Enemy
-            // TODO: Need to annotate enemy types to get rid of random selection.
-            Random random = new Random();
-            int type = random.nextInt(4);
-            level.setSpriteTemplate(x, y, new SpriteTemplate(type, false));
+        } else if (ch == 'W') { // Hidden Power up
+            level.setBlock(x+2, y, (byte) (2 + 1 * 16));
+        } else if (ch == 'Y') { // Hidden coin
+            level.setBlock(x+2, y, (byte) (1 + 1 * 16));
+        } else if (ch == 'E') { // Goomba
+            level.setSpriteTemplate(x, y, new SpriteTemplate(Enemy.ENEMY_GOOMBA, false));
+        } else if (ch == 'G') { // Green Turtle
+            level.setSpriteTemplate(x, y, new SpriteTemplate(Enemy.ENEMY_GREEN_KOOPA, false));
+        } else if (ch == 'H') { // Red Turtle
+            level.setSpriteTemplate(x, y, new SpriteTemplate(Enemy.ENEMY_RED_KOOPA, false));
+        } else if (ch == 'I') { // Spiked Turtle
+            level.setSpriteTemplate(x, y, new SpriteTemplate(Enemy.ENEMY_SPIKY, false));
+        } else if (ch == 'F') { // Flying Turtle
+            level.setSpriteTemplate(x, y, new SpriteTemplate(Enemy.ENEMY_GREEN_KOOPA, true));
+        } else if (ch == 'K') { // Flower
+            level.setSpriteTemplate(x-1, y+2, new SpriteTemplate(Enemy.ENEMY_FLOWER, false));
         } else if (ch == 'o') { // Coin
             level.setBlock(x, y, (byte) (0 + 2 * 16));
         }

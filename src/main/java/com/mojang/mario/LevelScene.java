@@ -492,6 +492,7 @@ public class LevelScene extends Scene implements SpriteContext
             if (((Level.TILE_BEHAVIORS[block & 0xff]) & Level.BIT_SPECIAL) > 0)
             {
                 sound.play(Art.samples[Art.SAMPLE_ITEM_SPROUT], new FixedSoundSource(x * 16 + 8, y * 16 + 8), 1, 1, 1);
+
                 if (!Mario.large)
                 {
                     addSprite(new Mushroom(this, x * 16 + 8, y * 16 + 8));
@@ -503,9 +504,16 @@ public class LevelScene extends Scene implements SpriteContext
             }
             else
             {
-                Mario.getCoin();
-                sound.play(Art.samples[Art.SAMPLE_GET_COIN], new FixedSoundSource(x * 16 + 8, y * 16 + 8), 1, 1, 1);
-                addSprite(new CoinAnim(x, y));
+                if (block == (byte) (4 + 3 + 1 * 16)) {
+                    sound.play(Art.samples[Art.SAMPLE_ITEM_SPROUT], new FixedSoundSource(x * 16 + 8, y * 16 + 8), 1, 1, 1);
+                    addSprite(new OneUpMushroom(this, x * 16 + 8, y * 16 + 8));
+                }
+                else {
+                    Mario.getCoin();
+                    sound.play(Art.samples[Art.SAMPLE_GET_COIN], new FixedSoundSource(x * 16 + 8, y * 16 + 8), 1, 1, 1);
+                    addSprite(new CoinAnim(x, y));
+                }
+
             }
         }
 
