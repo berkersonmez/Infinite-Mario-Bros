@@ -36,6 +36,7 @@ public class FileLevelGenerator {
         this.level = new Level(this.width, this.height);
 
         level.xExit = this.width;
+        level.yExit = 13;
 
         try (BufferedReader br = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream(this.fileName)))) {
             String line;
@@ -58,7 +59,17 @@ public class FileLevelGenerator {
     private void placeBlock(char ch, int x, int y)
     {
         if (ch == 'X') { // Floor
-            level.setBlock(x, y, (byte) (1 + 8 * 16));
+            if (y == 13) {
+                level.setBlock(x, y, (byte) (1 + 8 * 16));
+            } else if ((y == 14 || y == 15) && level.getBlock(x, y-1) != (byte) (1 + 8 * 16)
+                                            && level.getBlock(x, y-1) != (byte) (1 + 9 * 16)) {
+                level.setBlock(x, y, (byte) (1 + 8 * 16));
+            } else if (y > 13) {
+                level.setBlock(x, y, (byte) (1 + 9 * 16));
+            }
+            else {
+                level.setBlock(x, y, (byte) (12 + 0 * 16));
+            }
         } else if (ch == 'Q') { // Coin Box
             level.setBlock(x, y, (byte) (4 + 1 + 1 * 16));
         } else if (ch == '?') { // Power up
@@ -80,9 +91,9 @@ public class FileLevelGenerator {
         } else if (ch == 'B') { // Pipe body right
             level.setBlock(x, y, (byte) (14 + 0 * 16));
         } else if (ch == 'W') { // Hidden Power up
-            level.setBlock(x+2, y, (byte) (2 + 1 * 16));
+            level.setBlock(x, y, (byte) (2 + 1 * 16));
         } else if (ch == 'Y') { // Hidden coin
-            level.setBlock(x+2, y, (byte) (1 + 1 * 16));
+            level.setBlock(x, y, (byte) (1 + 1 * 16));
         } else if (ch == 'E') { // Goomba
             level.setSpriteTemplate(x, y, new SpriteTemplate(Enemy.ENEMY_GOOMBA, false));
         } else if (ch == 'G') { // Green Turtle

@@ -202,10 +202,6 @@ public class Mario extends Sprite
         {
             facing = -1;
         }
-        System.out.println("KEY_JUMP: " + keys[KEY_JUMP]);
-        System.out.println("jumpTime: " + jumpTime);
-        System.out.println("onGround: " + onGround);
-        System.out.println("sliding: " + sliding);
         if (keys[KEY_JUMP] || (jumpTime < 0 && !onGround && !sliding))
         {
             if (jumpTime < 0)

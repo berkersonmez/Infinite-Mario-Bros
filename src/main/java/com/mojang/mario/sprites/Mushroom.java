@@ -6,21 +6,21 @@ import com.mojang.mario.LevelScene;
 
 public class Mushroom extends Sprite
 {
-    private static float GROUND_INERTIA = 0.89f;
-    private static float AIR_INERTIA = 0.89f;
+    protected static float GROUND_INERTIA = 0.89f;
+    protected static float AIR_INERTIA = 0.89f;
 
-    private float runTime;
-    private boolean onGround = false;
+    protected float runTime;
+    protected boolean onGround = false;
     @SuppressWarnings("unused")
-	private boolean mayJump = false;
+    protected boolean mayJump = false;
     @SuppressWarnings("unused")
-	private int jumpTime = 0;
+    protected int jumpTime = 0;
     @SuppressWarnings("unused")
-	private float xJumpSpeed;
+    protected float xJumpSpeed;
     @SuppressWarnings("unused")
-	private float yJumpSpeed;
+    protected float yJumpSpeed;
 
-    private int width = 4;
+    protected int width = 4;
     int height = 24;
 
     protected LevelScene world;
